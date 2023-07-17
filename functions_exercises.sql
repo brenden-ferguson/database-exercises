@@ -43,13 +43,12 @@ WHERE year(birth_date) BETWEEN 1900 AND 2023
   AND month(birth_date) = 12
   AND day(birth_date) = 25;
 
-SELECT *
+SELECT DATEDIFF(curdate(), hire_date) AS 'hired days ago', CONCAT(first_name, ' ', last_name) AS 'full name'
 FROM employees
 WHERE (year(hire_date) BETWEEN 1990 AND 1999)
   AND (year(birth_date) BETWEEN 1900 AND 2023
   AND month(birth_date) = 12
   AND day(birth_date) = 25)
-AND (DATEDIFF(hire_date, curdate()))
-ORDER BY hire_date DESC ;
+ORDER BY hire_date DESC;
 
 
